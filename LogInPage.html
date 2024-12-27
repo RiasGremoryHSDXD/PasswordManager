@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="LogInPage.css">
+    <link rel="stylesheet" href="LogInPage.css">
     <title>Log in</title>
 </head>
 <body>
     <div class="form">
-        <form>
-            <input type="text" id="username" name="username" placeholder="Username">
-            <input type="password" id="password" name="password" placeholder="Password">
-            <button type="submit" class="submit-button" onclick="logIn()">Log in</button>
+        <form method="post" action="LogInPage.php">
+
+            <input type="text" id="username" name="username" placeholder="Username" autocomplete="username" name="username">
+            <label for="username" id="username_error">The username textfield is empty! Please input something</label>
+
+            <input type="password" id="password" name="password" placeholder="Password" name="password">
+            <label for="password" id="password_error">The password textfield is empty! Please input something</label>
+
+            <button type="submit" class="submit-button" onclick="logIn(event)">Log in</button>
+
             <a href="ForgetPassword.html">Forget Password?</a>
+
             <hr color="black" width="90%">
-            <button type="submit" class="create-button" onclick="createAccount()">Create account</button>
+
+            <button type="button" class="create-button" onclick="createAccount(event)">Create account</button>
         </form>
     </div>
 </body>
