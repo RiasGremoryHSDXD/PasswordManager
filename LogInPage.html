@@ -8,22 +8,27 @@
 </head>
 <body>
     <div class="form">
-        <form id="loginForm" method="post" action="LogInPage.php">
+        <form id="loginForm">
+
             <input type="text" id="username" name="username" placeholder="Username" autocomplete="username">
-            <label for="username" id="username_error" style="display: none; color: red;">The username textfield is empty! Please input something</label>
+            <label for="username" id="username_error" style="display:none; color:red;">The username textfield is empty! Please input something</label>
 
             <input type="password" id="password" name="password" placeholder="Password">
-            <label for="password" id="password_error" style="display: none; color: red;">The password textfield is empty! Please input something</label>
+            <label for="password" id="password_error" style="display:none; color:red;">The password textfield is empty! Please input something</label>
 
-            <button type="submit" class="submit-button">Log in</button>
+            <button type="button" class="submit-button" onclick="logIn()">Log in</button>
 
             <a href="ForgetPassword.html">Forget Password?</a>
 
             <hr color="black" width="90%">
 
-            <button type="button" class="create-button" onclick="createAccount(event)">Create account</button>
+            <button type="button" class="create-button" onclick="createAccount()">Create account</button>
         </form>
     </div>
+
+    <!-- Response Message -->
+    <div id="response-message" style="color:green; margin-top: 10px;"></div>
+
     <script src="LogInPage.js"></script>
 </body>
 </html>

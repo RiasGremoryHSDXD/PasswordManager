@@ -1,54 +1,62 @@
-// Validate form fields
-function validateForm(event) {
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const username_error = document.getElementById('username_error');
-    const password_error = document.getElementById('password_error');
+function logIn() {
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const usernameError = document.getElementById("username_error");
+    const passwordError = document.getElementById("password_error");
+    const responseMessage = document.getElementById("response-message");
 
-    let username = usernameInput.value.trim();
-    let password = passwordInput.value.trim();
+    // Get input values
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Reset errors
+    usernameError.style.display = "none";
+    passwordError.style.display = "none";
+    responseMessage.textContent = "";
 
     let valid = true;
 
+    // Validate inputs
     if (username === "") {
         usernameInput.style.border = "solid 2px red";
-        username_error.style.display = "block";
+        usernameError.style.display = "block";
         valid = false;
     } else {
         usernameInput.style.border = "1px solid #ced4da";
-        username_error.style.display = "none";
     }
 
     if (password === "") {
         passwordInput.style.border = "solid 2px red";
-        password_error.style.display = "block";
+        passwordError.style.display = "block";
         valid = false;
     } else {
         passwordInput.style.border = "1px solid #ced4da";
-        password_error.style.display = "none";
     }
 
     if (!valid) {
-        event.preventDefault(); // Prevent form submission if validation fails
+        return; // Stop further execution if validation fails
     }
+
+    // AJAX request to send data to the server
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "LogInPage.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                responseMessage.textContent = xhr.responseText; // Display response from server
+                responseMessage.style.color = "green";
+            } else {
+                responseMessage.textContent = "An error occurred!";
+                responseMessage.style.color = "red";
+            }
+        }
+    };
+
+    // Send form data
+    xhr.send("username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
 }
 
-// Handle "Create Account" button click
-function createAccount(event) {
-    event.preventDefault();
-    alert('Create Account');
+function createAccount() {
+    alert("Create Account functionality is coming soon!");
 }
-
-// Attach validation to the form's submit event
-document.getElementById('loginForm').addEventListener('submit', validateForm);
-
-// Reset input errors on focus
-document.getElementById('username').addEventListener('focus', function () {
-    this.style.border = "1px solid #ced4da";
-    document.getElementById('username_error').style.display = "none";
-});
-
-document.getElementById('password').addEventListener('focus', function () {
-    this.style.border = "1px solid #ced4da";
-    document.getElementById('password_error').style.display = "none";
-});
