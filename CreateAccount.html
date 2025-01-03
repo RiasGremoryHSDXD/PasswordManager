@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CreateAccount.css">
+    <title>Create Account</title>
+</head>
+<body>
+    <div class= "form">
+        <form id="createAccountForm">
+            <h2>Create a new account</h2>
+            <div class="container">
+                <div class="row">
+                    <input type="text" id="firstName" name="firstName" placeholder="First name">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                
+                <div class="row">
+                    <input type="text" id="middleName" name="middleName" placeholder="Middle name (Optional)">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="row">
+                    <input type="text" id="lastName" name="lastName" placeholder="Last name">
+                    <input type="text" class="remove">
+                </div>
+                <div class="row">
+                    <input type="email" id="email" name="email" placeholder="Email">
+                    <input type="text" class="remove">
+
+                </div>
+            </div>
+            <input type="submit" class="submit-button" value="Create account">
+            <a href="LogInPage.html">Already have an account?</a>
+        </form>
+    </div>
+    <script src="CreateAccount.js"></script>
+</body>
+</html>

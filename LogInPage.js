@@ -57,6 +57,3 @@ function logIn() {
     xhr.send("username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
 }
 
-function createAccount() {
-    alert("Create Account functionality is coming soon!");
-}
