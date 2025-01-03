@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="form">
-        <form method="post" action="LogInPage.php">
+        <form>
 
-            <input type="text" id="username" name="username" placeholder="Username" autocomplete="username" name="username">
-            <label for="username" id="username_error">The username textfield is empty! Please input something</label>
+            <input type="text" id="username" name="username" placeholder="Username" autocomplete="username">
+            <label for="username" id="username_error" style="display:none; color:red;">The username textfield is empty! Please input something</label>
 
-            <input type="password" id="password" name="password" placeholder="Password" name="password">
-            <label for="password" id="password_error">The password textfield is empty! Please input something</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <label for="password" id="password_error" style="display:none; color:red;">The password textfield is empty! Please input something</label>
 
-            <button type="submit" class="submit-button" onclick="logIn(event)">Log in</button>
+            <button type="button" class="submit-button" onclick="logIn(event)">Log in</button>
 
             <a href="ForgetPassword.html">Forget Password?</a>
 
@@ -25,6 +25,8 @@
             <button type="button" class="create-button" onclick="createAccount(event)">Create account</button>
         </form>
     </div>
+
+    <div id="response-message" style="color:green; margin-top: 10px;"></div>
 </body>
 <script src="LogInPage.js"></script>
 </html>

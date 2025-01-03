@@ -1,11 +1,18 @@
 function logIn(event) {
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const username_error = document.getElementById('username_error');
-    const password_error = document.getElementById('password_error');
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const username_error = document.getElementById("username_error");
+    const password_error = document.getElementById("password_error");
+    const responseMessage = document.getElementById("response-message");
 
-    let username = usernameInput.value.trim();
-    let password = passwordInput.value.trim();
+    // Get input values
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Reset error messages
+    username_error.style.display = "none";
+    password_error.style.display = "none";
+    responseMessage.textContent = "";
 
     let valid = true; // Flag to track form validity
 
@@ -27,26 +34,23 @@ function logIn(event) {
         password_error.style.display = "none";
     }
 
-    if (!valid) {
+    if (!event) {
         event.preventDefault(); // Prevent submission if form is invalid
     }
+
+    // AJAX request to send data to the server
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "LogInPage.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            responseMessage.textContent = xhr.responseText; // Display response from server
+        }
+    };
+    xhr.send(`username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
 }
-
-// Add event listener to reset error states
-document.getElementById('username').addEventListener('focus', function () {
-    this.style.border = "1px solid #ced4da";
-    document.getElementById('username_error').style.display = "none";
-});
-
-document.getElementById('password').addEventListener('focus', function () {
-    this.style.border = "1px solid #ced4da";
-    document.getElementById('password_error').style.display = "none";
-});
 
 function createAccount(event) {
     event.preventDefault(); // Prevent form submission
-    window.alert('Create Account');
+    window.alert("Create Account");
 }
-
-// Attach the logIn function to the form submit event
-document.getElementById('loginForm').addEventListener('submit', logIn);

@@ -1,18 +1,25 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Database connection
     $connection = new mysqli('localhost', 'root', '', 'password_manager_db');
-    if($connection->connect_error){
+
+    if ($connection->connect_error) {
         die('Connection failed: ' . $connection->connect_error);
     }
-    else
-    {
-        $stmt = $connection->prepare("INSERT INTO credentials (username, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username, $password);
-        $stmt->execute();
+
+    $stmt = $connection->prepare("INSERT INTO credentials (log_in_username, log_in_password) VALUES (?, ?)");
+    $stmt->bind_param("ss", $username, $password);
+
+    if ($stmt->execute()) {
         echo "New record created successfully";
-        $stmt->close();
-        $connection->close();
+    } else {
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
+    $connection->close();
+}
 ?>
