@@ -23,8 +23,15 @@ function proceedCreateAccount(event)
         field_name.style.border = "solid 2px red";
         error_message.style.fontSize = "80%";
         error_message.style.display = "block";
+
+        field_name.addEventListener('input',() =>
+        {
+            field_name.style.border = "solid 2px #ced4da";
+            error_message.style.display = "none";
+        })
+        
     }
-    
+
     let valid = true;
 
     fields.forEach((field) => {
@@ -42,7 +49,7 @@ function proceedCreateAccount(event)
     })
 
     if (!valid) {
-        return; // Stop further execution if validation fails
+        return;
     }
 }
 
