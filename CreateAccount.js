@@ -51,6 +51,10 @@ function proceedCreateAccount(event)
     if (!valid) {
         return;
     }
+    else
+    {
+        console.log("All fields are valid");
+    }
 }
 
 document.getElementById('createAccountForm').addEventListener('submit', proceedCreateAccount);

@@ -43,6 +43,7 @@ async function main() {
   const email = prompt("Enter your email: ");
   const sentOTP = await sendOTP(email);
 
+  console.log(`Boolean value of sentOTP: ${sentOTP}`); // For debugging
   if (!sentOTP) {
     console.log("Failed to send OTP. Exiting.");
     return;
