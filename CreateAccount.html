@@ -54,8 +54,14 @@
             <input type="submit" class="submit-button" value="Create account">
             <a href="LogInPage.html">Already have an account?</a>
         </form>
+
+        <div id="otp-verification" style="display: none;">
+            <p>Please enter the OTP sent to your email:</p>
+            <input type="text" id="otpInput" placeholder="Enter OTP">
+            <button id="verifyOtpButton">Verify OTP</button>
+        </div>
+
     </div>
     <script src="CreateAccount.js"></script>
-    <script src="SendValidationOTP.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-// Configure Nodemailer Transporter
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth:{
@@ -9,11 +8,11 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-function generateOTP(){
+export function generateOTP(){
     return Math.floor(100000 + Math.random() * 900000);
 }
 
-async function sendOTP(email)
+export async function sendOTP(email)
 {
     const OTP_generated = generateOTP();
 
@@ -33,12 +32,6 @@ async function sendOTP(email)
     }
     catch(error)
     {
-        alert('An error occurred while sending the verification code. Please try again later.');
+        return null;
     }
-}
-
-async function validate_otp(email)
-{
-    const setOTP = await sendOTP(email);
-    alert(`The OTP code that being send is ${setOTP} in the gmale of ${email}`);
-}
+} 
