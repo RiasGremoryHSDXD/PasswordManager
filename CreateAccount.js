@@ -89,6 +89,18 @@ function proceedCreateAccount(event)
     if (!valid) {
         return;
     }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "CreateAccount.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(
+        "first_name=" + encodeURIComponent(document.getElementById("firstName").value) +
+        "&middle_name=" + encodeURIComponent(document.getElementById("middleName").value) +
+        "&last_name=" + encodeURIComponent(document.getElementById("lastName").value) +
+        "&email=" + encodeURIComponent(document.getElementById("email").value) +
+        "&user_name=" + encodeURIComponent(document.getElementById("username").value) +
+        "&password=" + encodeURIComponent(document.getElementById("password").value)
+    );
 }
 
 
