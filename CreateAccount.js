@@ -67,12 +67,18 @@ function proceedCreateAccount(event)
             display_input_error(field.id, field.error_2);
             valid = false;
         }
-        else if(!user_input_letter_valid(value) && field.id === "middlename" && field.id !== "email" && field.id !== "username" && field.id !== "password") 
+        else if(!user_input_letter_valid(value) &&  field.id !== "middleName" && field.id !== "email" && field.id !== "username" && field.id !== "password") 
         {
             console.log(field.id + " is invalid");
             display_input_error(field.id, field.error_2);
             valid = false;
-        }   
+        }
+        else if(field.id === "email" && !user_input_email_valid(value) && value.length > 0)
+        {
+            console.log(field.id + " is invalid");
+            display_input_error(field.id, field.error_2);
+            valid = false;
+        }  
         else
         {
             document.getElementById(field.id).style.border = "solid 2px #ced4da";
@@ -90,6 +96,12 @@ function user_input_letter_valid(value)
 {
     const letter = /^[A-Za-z\s]+$/;
     return value.match(letter);
+}
+
+function user_input_email_valid(value)
+{
+    const email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return value.match(email);
 }
 
 document.getElementById('createAccountForm').addEventListener('submit', proceedCreateAccount);
