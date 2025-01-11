@@ -7,3 +7,9 @@ CipherVault is a secure and user-friendly password manager website designed to s
 > Password Generator: Create strong and unique passwords for your accounts. <br>
 > Search and Filter: Quickly find stored passwords with a responsive search feature. <br>
 > Responsive Design: Access CipherVault from any device with a seamless experience. <br>
+
+# Technology being used
+> HTML <br>
+> CSS <br>
+> JavaScript <br>
+> PHP <br>
