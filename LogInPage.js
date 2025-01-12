@@ -14,6 +14,16 @@ function logIn() {
 
     let valid = true;
 
+    usernameInput.addEventListener("input", () => {
+        usernameInput.style.border = "1px solid #ced4da";
+        usernameError.style.display = "none";
+    });
+
+    passwordInput.addEventListener("input", () => {
+        passwordInput.style.border = "1px solid #ced4da";
+        passwordError.style.display = "none";
+    });
+
     // Validate inputs
     if (username === "") {
         usernameInput.style.border = "solid 2px red";
