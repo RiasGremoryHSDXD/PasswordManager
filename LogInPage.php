@@ -1,28 +1,16 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    include("database.php");
 
-    // Connect to the database
-    $connection = new mysqli('localhost', 'root', '', 'password_manager_db');
+    $sql_code = "SELECT * FROM credentials"; // Query to fetch all data from the credentials table
+    $result = mysqli_query($conn, $sql_code); // Execute the query
 
-    if ($connection->connect_error) {
-        die('Connection failed: ' . $connection->connect_error);
+    
+    while($row = mysqli_fetch_assoc($result))
+    {
+        echo "Username: " . $row['log_in_username'] . "<br>";
+        echo "Password: " . $row['log_in_password'] . "<br>";
     }
-
-    $stmt = $connection->prepare("INSERT INTO credentials (log_in_username, log_in_password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $username, $password);
-
-    if ($stmt->execute()) {
-        echo "New record created successfully!";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
-    $connection->close();
-} else {
-    http_response_code(405);
-    echo "Invalid request method!";
-}
+   
+    // Close the connection after use
+    mysqli_close($conn);
 ?>
