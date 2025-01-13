@@ -1,16 +1,26 @@
 <?php
-    include("database.php");
+    include('database.php');
 
-    $sql_code = "SELECT * FROM credentials"; // Query to fetch all data from the credentials table
-    $result = mysqli_query($conn, $sql_code); // Execute the query
-
-    
-    while($row = mysqli_fetch_assoc($result))
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        echo "Username: " . $row['log_in_username'] . "<br>";
-        echo "Password: " . $row['log_in_password'] . "<br>";
+        header('Content-Type: application/json');
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql_code = "SELECT log_in_username, log_in_password FROM credentials";
+        $result = mysqli_query($conn, $sql_code);
+
+        $isAuthenticated = false;
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($username === $row['log_in_username'] && $password === $row['log_in_password']) {
+                $isAuthenticated = true;
+                break;
+            }
+        }
+
+        echo json_encode($isAuthenticated); // Output true or false
+        exit();
     }
-   
-    // Close the connection after use
-    mysqli_close($conn);
 ?>

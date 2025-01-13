@@ -101,6 +101,8 @@ function proceedCreateAccount(event)
         "&user_name=" + encodeURIComponent(document.getElementById("username").value) +
         "&password=" + encodeURIComponent(document.getElementById("password").value)
     );
+
+    alert("The new account has been created successfully")
 }
 
 
