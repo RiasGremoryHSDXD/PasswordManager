@@ -41,8 +41,20 @@
         <button id="add_entry">
             + Add Entry
         </button>
+        <div id="modal_container" class="modal_container" style="display: none;">
+            <form class="modal">
+                <input type="text" class="text_field_input" placeholder="Site">
+                <input type="text" class="text_field_input" placeholder="Username">
+                <input type="text" class="text_field_input" placeholder="Password">
+                <input type="text" class="text_field_input" placeholder="Note">
+                <input type="text" class="text_field_input" placeholder="Link">
+                <div class="btn_container">
+                    <button id="cancel_button" class="btn_attributes">Cancel</button>
+                    <button class="btn_attributes">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
-    
 </body>
 <script src="Home.js"></script>
 </html>
