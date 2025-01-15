@@ -1,0 +1,16 @@
+/*
+    This code format is a example for getting the user 
+    Key logs
+*/
+
+/*
+    add_entry_button.addEventListener('keydown', (event) =>
+    {
+        console.log("Press: " + event.key)
+        if(event.key === "Enter")
+        {
+            console.log("Add entry is clicked using the 'Enter'")
+        }
+    })
+*/
+#####
