@@ -53,9 +53,12 @@ async function logIn() {
     try {
         let isAuthentication = await authentication(username, password);
 
-        if(isAuthentication)
+        if(isAuthentication.isAuthenticated)
         {
-            window.location.href = "./MainMenuFile/MainMenu.html";
+            localStorage.setItem("username", username)
+            localStorage.setItem("password", password)
+            localStorage.setItem("user_id", isAuthentication.user_credentials_RK)
+            window.location.href = "./MainMenuFile/Home.html";
         }
         else
         {
@@ -80,8 +83,10 @@ async function authentication(username, password)
             body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
         });
         let fetch_data = await response.json();
+        console.log("Authenticated: " + fetch_data.isAuthenticated)
+        console.log("user_id:" + fetch_data.user_credentials_RK)
         return fetch_data;
     } catch (error) {
-        console.log("WEW")
+        alert('The JSON having an error')
     }
 }
