@@ -28,6 +28,7 @@ get_add_button.addEventListener('click', (event) =>
     console.log("Log in Username: " + localStorage.getItem("username"));
     console.log("Log in Password: " + localStorage.getItem("password"));
     console.log("User ID: " + localStorage.getItem("user_id"))
+    console.log("Table user_info_details_id: " + localStorage.setItem("user_info_details_id"))
     console.log("Site Name: " + get_site_name.value);
     console.log("Username: " + get_username.value);
     console.log("Password: " + get_password.value);
