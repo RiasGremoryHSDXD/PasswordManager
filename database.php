@@ -2,7 +2,7 @@
     $db_server = "localhost";
     $root = "root";
     $password = "";
-    $db_name = "password_manager_db";
+    $db_name = "database_password_manager";
     $connection = "";
 
     try
