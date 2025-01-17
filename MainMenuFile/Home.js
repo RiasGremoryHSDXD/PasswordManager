@@ -25,13 +25,19 @@ get_cancel_button.addEventListener('click', (event) =>
 get_add_button.addEventListener('click', (event) => 
 {
     event.preventDefault();
-    console.log("Log in Username: " + localStorage.getItem("username"));
-    console.log("Log in Password: " + localStorage.getItem("password"));
-    console.log("User ID: " + localStorage.getItem("user_id"))
-    console.log("Table user_info_details_id: " + localStorage.setItem("user_info_details_id"))
-    console.log("Site Name: " + get_site_name.value);
-    console.log("Username: " + get_username.value);
-    console.log("Password: " + get_password.value);
-    console.log("Note: " + get_note.value)
-    console.log("Link: " + get_link.value)
+
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "Home.php", true)
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send
+    (
+        "user_info_details_id=" + encodeURIComponent(localStorage.getItem("user_info_details_id")) +
+        "&site_name=" + encodeURIComponent(get_site_name.value) + 
+        "&username=" + encodeURIComponent(get_username.value) +
+        "&password=" + encodeURIComponent(get_password.value) + 
+        "&note=" + encodeURIComponent(get_note.value) + 
+        "&link=" + encodeURIComponent(get_link.value)
+    );
+
+    alert("The saved info is saved!")
 });
