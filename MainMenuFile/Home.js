@@ -10,12 +10,23 @@ let get_link = document.getElementById("save_link");
 let get_site_error = document.getElementById("site_error")
 let get_username_error = document.getElementById('username_error')
 let get_password_error = document.getElementById('password_error')
+let get_close_success_modal_button = document.getElementById('close_success_modal')
+let get_success_modal = document.getElementById('success_modal')
+
+function toogleButtons(state)
+{
+    get_add_button.disabled = state
+    get_cancel_button.disabled = state
+}
+
+
 
 
 add_entry_button.addEventListener('click', () =>
 {
     get_modal_container.style.display = "block";
     add_entry_button.style.display = "none";
+    toogleButtons(false)
 });
 
 get_cancel_button.addEventListener('click', (event) =>
@@ -23,6 +34,7 @@ get_cancel_button.addEventListener('click', (event) =>
     event.preventDefault();
     get_modal_container.style.display = "none";
     add_entry_button.style.display = "block";
+    toogleButtons(false)
 });
 
 get_add_button.addEventListener('click', (event) => 
@@ -88,5 +100,19 @@ get_add_button.addEventListener('click', (event) =>
         "&link=" + encodeURIComponent(get_link.value)
     );
 
-    alert("The saved info is saved!")
+    get_success_modal.style.display = "block"
+    toogleButtons(true)
+    get_site_name.value = ""
+    get_username.value = ""
+    get_password.value = ""
+    get_note.value = ""
+    get_link.value = ""
 });
+
+get_close_success_modal_button.addEventListener('click', () => 
+{
+    get_modal_container.style.display = "none";
+    get_success_modal.style.display = "none";
+    add_entry_button.style.display = "block";
+    toogleButtons(false)
+})

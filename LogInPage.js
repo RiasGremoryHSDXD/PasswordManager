@@ -84,8 +84,6 @@ async function authentication(username, password)
             body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
         });
         let fetch_data = await response.json();
-        console.log("Authenticated: " + fetch_data.isAuthenticated)
-        console.log("user_id:" + fetch_data.user_credentials_RK)
         return fetch_data;
     } catch (error) {
         alert('The JSON having an error')
