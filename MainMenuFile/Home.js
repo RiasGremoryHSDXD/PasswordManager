@@ -26,7 +26,6 @@ add_entry_button.addEventListener('click', () =>
 {
     get_modal_container.style.display = "block";
     add_entry_button.style.display = "none";
-    toogleButtons(false)
 });
 
 get_cancel_button.addEventListener('click', (event) =>
@@ -34,7 +33,6 @@ get_cancel_button.addEventListener('click', (event) =>
     event.preventDefault();
     get_modal_container.style.display = "none";
     add_entry_button.style.display = "block";
-    toogleButtons(false)
 });
 
 get_add_button.addEventListener('click', (event) => 
