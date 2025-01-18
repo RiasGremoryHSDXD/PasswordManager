@@ -1,0 +1,13 @@
+table
+{
+    border-collapse: collapse;
+    width: 100%;
+    color: red;
+    text-align: left;
+}
+
+td
+{
+    background-color: yellowgreen;
+    color: white;
+}
