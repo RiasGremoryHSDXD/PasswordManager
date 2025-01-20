@@ -14,8 +14,7 @@
     include('./../NavigationBar/NavigationBar.php')
     ?>
     <div class="home_container">
-        <h1>Home Page</h1>
     </div>
 </body>
-
+    <script src="Home.js"></script>
 </html>
