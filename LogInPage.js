@@ -59,7 +59,7 @@ async function logIn() {
             localStorage.setItem("password", password)
             localStorage.setItem("user_id", isAuthentication.user_credentials_RK)
             localStorage.setItem("user_info_details_id", isAuthentication.user_info_details_id)
-            window.location.href = "./MainMenuFile/Home.html";
+            window.location.href = "MainMenu1/Home/Home.php";
         }
         else
         {
