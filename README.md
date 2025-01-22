@@ -13,3 +13,6 @@ CipherVault is a secure and user-friendly password manager website designed to s
 > CSS <br>
 > JavaScript <br>
 > PHP  <br> 
+
+# Project Status
+CipherVault is currently under development, striving to deliver a secure and user-friendly password management solution tailored to your needs
