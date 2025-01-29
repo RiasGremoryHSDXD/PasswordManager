@@ -40,6 +40,12 @@
             </form>
         </div>
 
+        <div id="success_modal" class="success_modal">
+            <div class="success_content">
+                <p>The saved info is saved!</p>
+                <button id="close_success_modal">Close</button>
+            </div>
+        </div>
     </div>
 
 </body>

@@ -10,8 +10,9 @@ let get_link = document.getElementById("save_link");
 let get_site_error = document.getElementById("site_error")
 let get_username_error = document.getElementById('username_error')
 let get_password_error = document.getElementById('password_error')
-let get_close_success_modal_button = document.getElementById('close_success_modal')
 let get_success_modal = document.getElementById('success_modal')
+let get_close_success_modal_button = document.getElementById('close_success_modal')
+
 
 get_entry_button.addEventListener('click', () => 
 {
@@ -76,6 +77,22 @@ get_submit_button.addEventListener('click', (event) =>
     submitEntry()
 });
 
+get_close_success_modal_button.addEventListener('click', () =>
+{
+    get_site_name.value = ""
+    get_username.value = ""
+    get_password.value = ""
+    get_note.value = ""
+    get_link.value = ""
+    get_success_modal.style.display = "none"
+    toogleButton(false)
+})
+
+function toogleButton(state)
+{
+    get_submit_button.disabled = state
+    get_cancel_button.disabled = state
+}
 
 async function submitEntry()
 {
@@ -103,7 +120,11 @@ async function submitEntry()
         )
 
         let data = await response.text()
-        console.log("Success:", data);
+        if(data.trim() === "")
+        {
+            toogleButton(true)
+            get_success_modal.style.display = "block"
+        }
 
     }catch(error)
     {
