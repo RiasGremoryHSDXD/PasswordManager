@@ -12,10 +12,14 @@
 
 <body>
     <?php
-    include('./../NavigationBar/NavigationBar.php')
+    include('./../NavigationBar/NavigationBar.php');
     ?>
     <div class="home_container"> 
 
+
+        <?php
+            echo "Hello  World";
+        ?>
         <div class="add_entry_container">
             <button id="entry_button" class="entry_button"> + Add Entry</button>
         </div>
@@ -42,7 +46,7 @@
 
         <div id="success_modal" class="success_modal">
             <div class="success_content">
-                <p>The saved info is saved!</p>
+                <p id="add_entry_message">The saved info is saved!</p>
                 <button id="close_success_modal">Close</button>
             </div>
         </div>

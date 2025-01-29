@@ -12,6 +12,7 @@ let get_username_error = document.getElementById('username_error')
 let get_password_error = document.getElementById('password_error')
 let get_success_modal = document.getElementById('success_modal')
 let get_close_success_modal_button = document.getElementById('close_success_modal')
+let get_add_entry_message = document.getElementById('add_entry_message')
 
 
 get_entry_button.addEventListener('click', () => 
@@ -122,6 +123,12 @@ async function submitEntry()
         let data = await response.text()
         if(data.trim() === "")
         {
+            get_add_entry_message.innerHTML = "Entry added successfully!"
+            toogleButton(true)
+            get_success_modal.style.display = "block"
+        }else
+        {
+            get_add_entry_message.innerHTML = "Error occured while adding entry! <br> Please try again later."  
             toogleButton(true)
             get_success_modal.style.display = "block"
         }

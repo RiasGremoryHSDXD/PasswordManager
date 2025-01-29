@@ -10,7 +10,7 @@
         $note = $_POST['note'];
         $link = $_POST['link'];
 
-        $insert_value_in_user_save_password_managerTable = $connection->prepare("INSERT INTO user_save_password_manager (user_info_details_id, site_name, site_url, site_username, site_password, notes) VALUES (?, ?, ?, ?, ?, ?)");
+        $insert_value_in_user_save_password_managerTable = $connection->prepare("NSERT INTO user_save_password_manager (user_info_details_id, site_name, site_url, site_username, site_password, notes) VALUES (?, ?, ?, ?, ?, ?)");
         $insert_value_in_user_save_password_managerTable->bind_param('ssssss', $user_info_details_id, $site_name, $link, $user_name, $password, $note);
         $insert_value_in_user_save_password_managerTable->execute();
     }
