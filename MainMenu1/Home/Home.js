@@ -72,4 +72,41 @@ get_submit_button.addEventListener('click', (event) =>
     {
         return
     }
-});    
+    
+    submitEntry()
+});
+
+
+async function submitEntry()
+{
+    try
+    {
+        let response = await fetch('AddEntry.php',
+            {
+                method:'POST',
+                headers:
+                {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams
+                (
+                    {
+                        user_info_details_id: localStorage.getItem("user_info_details_id"),
+                        site_name: get_site_name.value,
+                        username: get_username.value,
+                        password: get_password.value,
+                        note: get_note.value,
+                        link: get_link.value
+                    }
+                )
+            }
+        )
+
+        let data = await response.text()
+        console.log("Success:", data);
+
+    }catch(error)
+    {
+        alert(error)
+    }
+}
