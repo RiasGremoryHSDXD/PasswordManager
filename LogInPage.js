@@ -53,9 +53,6 @@ async function logIn() {
     try {
         let isAuthentication = await authentication(username, password);
 
-        const secretKey = CryptoJS.enc.Utf8.parse('32ByteSecretKey_12345678901234'); // 32 bytes
-        const iv = CryptoJS.enc.Utf8.parse('16ByteIV_1234567'); // 16 bytes
-
         if(isAuthentication.isAuthenticated)
         {
             localStorage.setItem("username", username)
@@ -63,7 +60,7 @@ async function logIn() {
             localStorage.setItem("user_id", isAuthentication.user_credentials_RK)
             localStorage.setItem("user_info_details_id", isAuthentication.user_info_details_id)
 
-            window.location.href = `MainMenu1/Home/Home.php?user_id=${isAuthentication.user_credentials_RK}`;
+            window.location.href = `MainMenu1/Home/Home.php?user_id=${encodeURIComponent(isAuthentication.user_credentials_RK)}`;
         }
         else
         {
