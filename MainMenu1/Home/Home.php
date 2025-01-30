@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./../NavigationBar/NavigationBar.css">
     <link rel="stylesheet" href="./../button.css">
     <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="ShowData.css">
 </head>
 
 <body>
@@ -16,10 +17,41 @@
     ?>
     <div class="home_container"> 
 
+        <!-- <?php
+            include('ShowData.php')
+        ?> -->
 
-        <?php
-            echo "Hello  World";
-        ?>
+        <!-- <?php
+            include('./../database_connection.php');
+
+            // Decode JSON input only once
+            $json_data = file_get_contents('php://input');
+            $input = json_decode($json_data, true);
+
+            $user_id = isset($input['user_id']) ? strval($input['user_id']) : "No user_id received"; 
+
+            $query = "SELECT * FROM user_save_password_manager";
+            $result = mysqli_query($connection, $query);
+
+            if(mysqli_num_rows($result) > 0)
+            {
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    echo "user_id: " . htmlspecialchars($user_id); // Properly display the user_id
+                }
+            }
+        ?> -->
+
+<?php
+
+
+if (isset($_GET['user_id'])) 
+{
+    echo isset($_GET['user_id']);
+} else {
+  echo "<h1>No user_id received</h1>";
+}
+?>
         <div class="add_entry_container">
             <button id="entry_button" class="entry_button"> + Add Entry</button>
         </div>
