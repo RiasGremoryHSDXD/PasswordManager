@@ -21,7 +21,7 @@
             include('ShowData.php')
         ?> -->
 
-        <!-- <?php
+        <?php
             include('./../database_connection.php');
 
             // Decode JSON input only once
@@ -33,24 +33,27 @@
             $query = "SELECT * FROM user_save_password_manager";
             $result = mysqli_query($connection, $query);
 
-            if(mysqli_num_rows($result) > 0)
-            {
-                while($row = mysqli_fetch_assoc($result))
-                {
-                    echo "user_id: " . htmlspecialchars($user_id); // Properly display the user_id
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo 
+                    "<div class='entry-item'>  <!-- Single quotes for HTML -->
+                        <button class='site-button'>
+                            {$row['site_name']}
+                        </button>
+                    </div>";
                 }
             }
-        ?> -->
+        ?>
 
 <?php
 
 
-if (isset($_GET['user_id'])) 
-{
-    echo isset($_GET['user_id']);
-} else {
-  echo "<h1>No user_id received</h1>";
-}
+// if (isset($_GET['user_id'])) 
+// {
+//     echo isset($_GET['user_id']);
+// } else {
+//   echo "<h1>No user_id received</h1>";
+// }
 ?>
         <div class="add_entry_container">
             <button id="entry_button" class="entry_button"> + Add Entry</button>
