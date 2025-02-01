@@ -15,46 +15,28 @@
     <?php
     include('./../NavigationBar/NavigationBar.php');
     ?>
+
     <div class="home_container"> 
 
-        <!-- <?php
-            include('ShowData.php')
-        ?> -->
-
         <?php
-            include('./../database_connection.php');
-
-            // Decode JSON input only once
-            $json_data = file_get_contents('php://input');
-            $input = json_decode($json_data, true);
-
-            $user_id = isset($input['user_id']) ? strval($input['user_id']) : "No user_id received"; 
-
-            $query = "SELECT * FROM user_save_password_manager";
-            $result = mysqli_query($connection, $query);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo 
-                    "<div class='entry-item'>  <!-- Single quotes for HTML -->
-                        <button class='site-button'>
-                            {$row['site_name']}
-                        </button>
-                    </div>";
-                }
-            }
+            echo 
+            "
+            <table border='1'>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Site Name</th>
+                        <th>URL</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody id='data-table-body'>
+                </tbody>
+            </table>
+            ";
         ?>
-
-<?php
-
-
-// if (isset($_GET['user_id'])) 
-// {
-//     echo isset($_GET['user_id']);
-// } else {
-//   echo "<h1>No user_id received</h1>";
-// }
-?>
         <div class="add_entry_container">
             <button id="entry_button" class="entry_button"> + Add Entry</button>
         </div>

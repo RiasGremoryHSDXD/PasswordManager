@@ -60,7 +60,9 @@ async function logIn() {
             localStorage.setItem("user_id", isAuthentication.user_credentials_RK)
             localStorage.setItem("user_info_details_id", isAuthentication.user_info_details_id)
 
-            window.location.href = `MainMenu1/Home/Home.php?user_id=${encodeURIComponent(isAuthentication.user_credentials_RK)}`;
+            let send_user_id = await send_user_info_details_id(isAuthentication.user_info_details_id)
+            // window.location.href = `MainMenu1/Home/Home.php?user_id=${encodeURIComponent(isAuthentication.user_credentials_RK)}`;
+            window.location.href = "MainMenu1/Home/Home.php";
         }
         else
         {
@@ -87,6 +89,31 @@ async function authentication(username, password)
         let fetch_data = await response.json();
         return fetch_data;
     } catch (error) {
+        alert('The JSON having an error')
+    }
+}
+
+async function send_user_info_details_id(user_info_details_id)
+{
+    try
+    {
+        const response = await fetch('MainMenu1/Home/RetrieveEntry.php',
+            {
+                method:'POST',
+                headers:
+                {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams
+                (
+                    {
+                        user_info_details_id: user_info_details_id
+                    }
+                )
+            }
+        )
+    }catch(error)
+    {
         alert('The JSON having an error')
     }
 }
