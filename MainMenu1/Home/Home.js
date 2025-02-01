@@ -159,7 +159,7 @@ async function send_user_id()
                 body: JSON.stringify({ user_id: send_user_id }) // Correct structure
             })
         let fetch_data = await send_data.json();
-        displayData(fetch_data);
+        displaySiteName(fetch_data);
     }catch(error)
     {
         console.log(error)
@@ -182,6 +182,21 @@ function displayData(data)
             <td>${item.notes}</td>
         `;
         tableBody.appendChild(row);
+    });
+}
+
+function displaySiteName(data) {
+    let site_name = document.getElementById('site_name');
+    site_name.innerHTML = ''; // Clear previous content
+
+    data.forEach(item => {
+        let row = document.createElement('div');
+        row.classList.add('site_name_container'); // Add a class for styling
+        row.innerHTML = `
+            <div>${item.site_name}</div>
+            <button class='view_button'>View</button>
+        `;
+        site_name.appendChild(row); // Append the new div to site_name
     });
 }
 

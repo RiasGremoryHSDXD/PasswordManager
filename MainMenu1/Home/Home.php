@@ -21,22 +21,13 @@
         <?php
             echo 
             "
-            <table border='1'>
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>Site Name</th>
-                        <th>URL</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody id='data-table-body'>
-                </tbody>
-            </table>
+            <div class='site_name'>
+                <div id='site_name'>
+                </diV>
+            </div>
             ";
         ?>
+
         <div class="add_entry_container">
             <button id="entry_button" class="entry_button"> + Add Entry</button>
         </div>
