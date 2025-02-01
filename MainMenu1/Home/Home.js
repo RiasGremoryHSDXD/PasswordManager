@@ -88,6 +88,11 @@ get_close_success_modal_button.addEventListener('click', () =>
     get_link.value = ""
     get_success_modal.style.display = "none"
     toogleButton(false)
+
+    setTimeout(() => 
+        {
+            location.reload()
+        }, 1000)
 })
 
 function toogleButton(state)
@@ -127,6 +132,7 @@ async function submitEntry()
             get_add_entry_message.innerHTML = "Entry added successfully!"
             toogleButton(true)
             get_success_modal.style.display = "block"
+
         }else
         {
             get_add_entry_message.innerHTML = "Error occured while adding entry! <br> Please try again later."  
