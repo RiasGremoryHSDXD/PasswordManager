@@ -15,7 +15,7 @@ CipherVault is a secure and user-friendly password manager website designed to s
 > PHP  <br> 
 
 # Project Status
-CipherVault is currently under development, striving to deliver a secure and user-friendly password management solution tailored to your needs.🛡️🛠️
+CipherVault is currently under development, striving to deliver a secure and user-friendly password management solution tailored to your needs 🛡️🛠️
 
 ## LICENSE
 [LICENSE](https://github.com/RiasGremoryHSDXD/PasswordManager/blob/main/LICENSE)
